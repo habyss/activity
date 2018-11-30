@@ -1,0 +1,21 @@
+server:
+  servlet:
+    context-path: /act
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:mysql://47.107.137.149:3306/test
+    username: root
+    password: Hankun4211.
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+    database: mysql
+    hibernate:
+      ddl-auto: update
+
+  mvc:
+    view:
+      prefix: /templates/
+      suffix: .html
+    static-path-pattern: /static/**
