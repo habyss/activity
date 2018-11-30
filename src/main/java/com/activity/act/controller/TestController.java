@@ -33,11 +33,15 @@ public class TestController {
         restTemplate.setInterceptors(Collections.singletonList(new UserAgentInterceptor()));
         String url = "https://api.warframestat.us/pc/cetusCycle";
         String json = restTemplate.getForEntity(url, String.class).getBody();
-        System.out.println(json);
-
+        System.out.println("json ------------>"+json);
+        HashMap<String, Object> test = new HashMap<>();
         ObjectMapper mapper = new ObjectMapper();
-        map = mapper.readValue(json, map.getClass());
-        map.put("name",map.get("timeLeft"));
+        test = mapper.readValue(json, test.getClass());
+//        System.out.println(map);
+        System.out.println(test.get("timeLeft"));
+        map.put("test",test);
+        System.out.println(map);
+        System.out.println(test);
         return "test";
     }
 
