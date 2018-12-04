@@ -7,9 +7,19 @@
 </head>
 <body>
 <table>
+    <!--<tr>
+        <td th:text="${map.id}"></td>
+        <td th:text="${map.timeLeft}"></td>
+        <td th:text="${map.get('id')}"></td>
+        <td th:text="${map.get('timeLeft')}"></td>
+    </tr>-->
     <tr>
-        <td th:text="${name}"></td>
-        <td th:text="${id}"></td>
+        <td th:text="${ce.getExpiry()}"></td>
+        <td th:text="${ce.getId()}"></td>
+        <td th:text="${ce.getIsCetus()}"></td>
+        <td th:text="${ce.getIsDay()}"></td>
+        <td th:text="${ce.getShortString()}"></td>
+        <td th:text="${ce.getTimeLeft()}"></td>
     </tr>
 </table>
 </body>

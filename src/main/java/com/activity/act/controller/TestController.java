@@ -1,5 +1,6 @@
 package com.activity.act.controller;
 
+import com.activity.act.VO.CetusCycle;
 import com.activity.act.interceptor.UserAgentInterceptor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,6 @@ import org.springframework.web.client.RestTemplate;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -29,25 +29,28 @@ public class TestController {
     /***********HTTP GET method*************/
 
     @GetMapping("/getApi")
-    public String testGet(Map<String, Object> map) throws IOException {
+    public String testGet(Model model) throws IOException {
         restTemplate.setInterceptors(Collections.singletonList(new UserAgentInterceptor()));
         String url = "https://api.warframestat.us/pc/cetusCycle";
         String json = restTemplate.getForEntity(url, String.class).getBody();
-        System.out.println(json);
+        System.out.println("json ---" + json);
 
-        ObjectMapper mapper = new ObjectMapper();
-        map = mapper.readValue(json, map.getClass());
-        map.put("name",map.get("timeLeft"));
+        Map map = new HashMap<>();
+        map = new ObjectMapper().readValue(json, map.getClass());
+        model.addAttribute("map",map);
         return "test";
     }
 
     @GetMapping("/getApi1")
-    public ResponseEntity<String> testGetApi1(){
+    public String testGetBean(Model model) throws IOException {
         restTemplate.setInterceptors(Collections.singletonList(new UserAgentInterceptor()));
         String url = "https://api.warframestat.us/pc/cetusCycle";
-        ResponseEntity<String> entity = restTemplate.getForEntity(url, String.class);
-        System.out.println(entity.getBody());
-        System.out.println(entity);
-        return entity;
+        String json = restTemplate.getForEntity(url, String.class).getBody();
+        System.out.println("json ---" + json);
+
+        CetusCycle cetusCycle = new CetusCycle();
+        cetusCycle = new ObjectMapper().readValue(json, cetusCycle.getClass());
+        model.addAttribute("ce",cetusCycle);
+        return "test";
     }
 }
