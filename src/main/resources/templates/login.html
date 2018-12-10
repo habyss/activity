@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,16 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <script src="/static/assets/js/jquery-3.3.1.js"></script>
     <script src="/static/assets/js/jquery.min.js"></script>
-    <script src="/static/assets/js/vue.js"></script>
     <link rel="icon" type="image/png" href="/static/assets/i/favicon.png">
     <link rel="apple-touch-icon-precomposed" href="/static/assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
     <link rel="stylesheet" href="/static/assets/css/amazeui.min.css"/>
     <link rel="stylesheet" href="/static/assets/css/amazeui.datatables.min.css"/>
     <link rel="stylesheet" href="/static/assets/css/app.css">
-
-
 </head>
 
 <body data-type="login">
@@ -40,18 +37,16 @@
         </div>
     </div>
     <div class="tpl-login">
-        <div class="tpl-login-content" id="auth">
+        <div class="tpl-login-content" >
             <div class="tpl-login-logo">
             </div>
-            <form class="am-form tpl-form-line-form">
+            <form  class="am-form tpl-form-line-form">
                 <div class="am-form-group">
-                    <input type="text" class="tpl-form-input"  id="username" name="username"  placeholder="请输入账号...">
-                    {{message}}
+                    <input type="text" class="tpl-form-input" id="username" name="username" placeholder="请输入账号...">
                 </div>
 
                 <div class="am-form-group">
-                    <input type="password" v-model="message" class="tpl-form-input" id="password" name="password" placeholder="请输入密码...">
-
+                    <input type="password" class="tpl-form-input" id="password" name="password" placeholder="请输入密码...">
                 </div>
                 <div class="am-form-group tpl-login-remember-me">
                     <input id="remember-me" type="checkbox">
@@ -61,7 +56,8 @@
                 </div>
                 <div class="am-form-group">
                     <button type="submit"
-                            class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">提交
+                            class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn"
+                            >提交
                     </button>
                 </div>
             </form>
@@ -72,17 +68,13 @@
 <script src="/static/assets/js/app.js"></script>
 <script>
 
-    new Vue({
-        el:'#auth',
-        data:{
-            message:'test Vue ...',
-        },
-        method:{
-            submit:function () {
-
-            }
-        }
-        });
+    $("form").submit(function () {
+        $.ajax({
+            url:"/login",
+            type:"POST",
+            contentType:"application/json"
+        })
+    });
 
 </script>
 </body>

@@ -1,3 +1,4 @@
+/*
 package com.activity.act.configuration;
 
 import org.springframework.context.annotation.Configuration;
@@ -47,7 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             //通过formlogin方法登录，并设置登录url为/api/user/login
             .formLogin().loginPage("/login")
             //指定登录成功后跳转到/index页面
-            .defaultSuccessUrl("/index")
+            .defaultSuccessUrl("/getApi")
             //指定登录失败后跳转到/login?error页面
             .failureUrl("/404")
             .permitAll()
@@ -63,3 +64,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .permitAll();
     }
 }
+*/
