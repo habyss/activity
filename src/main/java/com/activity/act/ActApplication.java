@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaRepositories("com.activity.act.dao")
-@EntityScan("com.activity.act.DO")
+@EntityScan("com.activity.act.entity")
 public class ActApplication {
 
     public static void main(String[] args) {

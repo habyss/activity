@@ -10,17 +10,20 @@ public class LoginInterceptor implements HandlerInterceptor {
 
     final String login = "/login";
     final String static_ = "/static";
+    final String register = "/register";
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String uri = request.getRequestURI();
         System.out.println(uri);
-        if (login.equals(uri)){
+        System.out.println(request.getSession().getAttribute("_user"));
+        if (login.equals(uri) || register.equals(uri)){
             return true;
         }
         if (uri.length() > 7 && uri.substring(0,7).equals(static_)){
             return true;
         }
         if (request.getSession().getAttribute("_user") == null){
+            response.sendRedirect("login");
             return false;
         }
         return true;

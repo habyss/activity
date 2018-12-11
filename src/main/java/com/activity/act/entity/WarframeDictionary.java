@@ -1,4 +1,4 @@
-package com.activity.act.DO;
+package com.activity.act.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

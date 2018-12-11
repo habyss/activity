@@ -1,6 +1,6 @@
 package com.activity.act.service.impl;
 
-import com.activity.act.DO.WarframeDictionary;
+import com.activity.act.entity.WarframeDictionary;
 import com.activity.act.dao.WarframeDictionaryDao;
 import com.activity.act.service.WarframeDictionaryService;
 import org.springframework.beans.factory.annotation.Autowired;

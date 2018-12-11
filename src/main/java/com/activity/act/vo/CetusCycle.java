@@ -1,4 +1,4 @@
-package com.activity.act.VO;
+package com.activity.act.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

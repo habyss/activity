@@ -1,6 +1,6 @@
 package com.activity.act.service;
 
-import com.activity.act.DO.WarframeDictionary;
+import com.activity.act.entity.WarframeDictionary;
 
 import java.util.List;
 

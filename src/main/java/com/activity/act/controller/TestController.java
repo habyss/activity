@@ -1,7 +1,7 @@
 package com.activity.act.controller;
 
-import com.activity.act.DO.WarframeDictionary;
-import com.activity.act.VO.CetusCycle;
+import com.activity.act.entity.WarframeDictionary;
+import com.activity.act.vo.CetusCycle;
 import com.activity.act.interceptor.UserAgentInterceptor;
 import com.activity.act.service.impl.WarframeDictionaryServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -41,11 +41,6 @@ public class TestController {
          return ResponseEntity.ok(searchResult);
     }
 
-    @GetMapping("test")
-    public String test() {
-        return "index";
-    }
-
     @GetMapping("getApi")
     public String testGetBean(Model model) throws IOException {
         restTemplate.setInterceptors(Collections.singletonList(new UserAgentInterceptor()));
@@ -56,6 +51,7 @@ public class TestController {
         CetusCycle cetusCycle = new CetusCycle();
         cetusCycle = new ObjectMapper().readValue(json, cetusCycle.getClass());
         model.addAttribute("ce",cetusCycle);
+        System.out.println("getApi..");
         return "index";
     }
 }
