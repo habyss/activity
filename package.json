@@ -1,0 +1,24 @@
+{
+  "name": "activity",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/habyss/activity.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/habyss/activity/issues"
+  },
+  "homepage": "https://github.com/habyss/activity#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "vue": "^2.5.18"
+  }
+}
